@@ -1,44 +1,76 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.APPLICATION)
+    id(Plugins.JETBRAINS_KOTLIN)
 }
 
 android {
-    namespace = "com.home.androidComposable"
-    compileSdk = 33
+    namespace = Configs.NAMESPACE
+    compileSdk = Configs.COMPILE_SDK
 
     defaultConfig {
-        applicationId = "com.home.androidComposable"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Configs.APP_ID
+        minSdk = Configs.MIN_SDK
+        targetSdk = Configs.TARGET_SDK
+        versionCode = Configs.VERSION_CODE
+        versionName = Configs.VERSION_NAME
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = Configs.ANDROID_JUNIT_RUNNER
+
         vectorDrawables {
             useSupportLibrary = true
         }
     }
 
     buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        getByName(Builds.Release.name) {
+            isMinifyEnabled = Builds.Release.isMinifyEnabled
+            isShrinkResources = Builds.Release.isShrinkResources
+            isDebuggable = Builds.Release.isDebuggable
+            proguardFiles(
+                getDefaultProguardFile(Configs.PROGUARD_ANDROID_OPTIMIZE),
+                Configs.PROGUARD_RULES
+            )
+        }
+        getByName(Builds.Debug.name) {
+            isMinifyEnabled = Builds.Debug.isMinifyEnabled
+            isShrinkResources = Builds.Debug.isShrinkResources
+            isDebuggable = Builds.Debug.isDebuggable
+            proguardFiles(
+                getDefaultProguardFile(Configs.PROGUARD_ANDROID_OPTIMIZE),
+                Configs.PROGUARD_RULES
+            )
         }
     }
+
+    flavorDimensions += Builds.SHARED_DIMENSION
+    productFlavors {
+        create(Builds.Flavors.DEV) {
+            applicationIdSuffix = ".${Builds.Flavors.DEV}"
+            dimension = Builds.SHARED_DIMENSION
+        }
+
+        create(Builds.Flavors.PRD) {
+            dimension = Builds.SHARED_DIMENSION
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
     buildFeatures {
         compose = true
     }
+
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = Versions.COMPOSE_COMPILER
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -47,20 +79,19 @@ android {
 }
 
 dependencies {
-
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    implementation("androidx.activity:activity-compose:1.7.0")
-    implementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation(Libs.AndroidX.CORE_KTX)
+    implementation(Libs.AndroidX.LIFECYCLE_RUNTIME_KTX)
+    implementation(Libs.AndroidX.ACTIVITY_COMPOSE)
+    implementation(platform(Libs.AndroidX.COMPOSE_BOOM))
+    implementation(Libs.Compose.UI)
+    implementation(Libs.Compose.UI_GRAPHICS)
+    implementation(Libs.Compose.UI_TOOLING_PREVIEW)
+    implementation(Libs.Compose.UI_MATERIAL)
+    debugImplementation(Libs.Compose.UI_TOOLING)
+    debugImplementation(Libs.Compose.UI_TEST_MANIFEST)
+    testImplementation(Libs.Test.JUNIT_EXT)
+    androidTestImplementation(Libs.Test.JUNIT)
+    androidTestImplementation(Libs.Test.ESPRESSO_CORE)
+    androidTestImplementation(platform(Libs.AndroidX.COMPOSE_BOOM))
+    androidTestImplementation(Libs.Test.COMPOSE_UI_JUNIT)
 }

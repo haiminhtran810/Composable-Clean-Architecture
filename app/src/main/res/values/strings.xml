@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Android-Composable</string>
+    <string name="title_body">Body:</string>
+    <string name="title_author">Author:</string>
 </resources>

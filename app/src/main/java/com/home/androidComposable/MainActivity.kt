@@ -3,41 +3,31 @@ package com.home.androidComposable
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.home.androidComposable.ui.theme.AndroidComposebleTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AndroidComposebleTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
-                }
-            }
+            MessageCard(name = "Nhoc Tax")
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-            text = "Hello $name!",
-            modifier = modifier
-    )
-}
+    // Để một hàm có thể kết hợp, hãy thêm chú thích @Composable
+    @Composable
+    fun MessageCard(name: String) {
+        // Bạn thực hiện việc này bằng cách xác định một khối nội dung
+        // và gọi hàm có khả năng kết hợp Text Khối setContent xác định bố cục của hoạt động mà trong đó.
+        Text(text = "Hello $name")
+    }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AndroidComposebleTheme {
-        Greeting("Android")
+    // Chú thích @Preview cho phép bạn xem trước các hàm có khả năng kết hợp trong Android Studio
+    // mà không cần phải tạo và cài đặt ứng dụng trên thiết bị Android hoặc trình mô phỏng
+    @Preview
+    @Composable
+    fun PreviewMessageCard() {
+        MessageCard(name = "Nhoc Tax")
     }
 }

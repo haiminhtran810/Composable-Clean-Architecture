@@ -1,10 +1,11 @@
 package com.home.androidComposable
 
+import android.content.res.Configuration
 import android.os.Bundle
-import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,6 +13,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,11 +24,16 @@ import com.home.androidComposable.data.MessageModel
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 
+// Material Design được xây dựng dựa trên 3 trụ cột:
+// Color (Màu), Typography (Kiểu chữ) và Shape
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MessageCard(message = MessageModel("Nhoc Tax", " I am Android Developer"))
+            Surface {
+                MessageCard(message = MessageModel("Nhoc Tax", " I am Android Developer"))
+            }
         }
     }
 
@@ -38,34 +46,52 @@ class MainActivity : ComponentActivity() {
         // To decorate or configure a composable, Compose uses modifiers
         Row(modifier = Modifier.padding(all = 8.dp)) {
             Image(
-                painter = painterResource(id = android.R.drawable.ic_dialog_map),
+                painter = painterResource(id = R.drawable.pokemon),
                 contentDescription = "Contact profile picture",
                 modifier = Modifier
                     // Set image size to 40 dp
-                    .size(40.dp)
+                    .size(60.dp)
                     // Set Shape for image. This is circle
                     .clip(CircleShape)
+                    .border(width = 1.dp, MaterialTheme.colorScheme.primary)
             )
             Spacer(modifier = Modifier.width(5.dp))
             Column {
                 Row {
-                    Text(text = "Author: ")
-                    Text(text = message.author)
+                    Text(text = "Author:")
+                    Text(
+                        text = message.author,
+                        color = MaterialTheme.colorScheme.primary,
+                        style = MaterialTheme.typography.titleSmall
+                    )
                 }
-                Spacer(modifier = Modifier.width(2.dp))
+                Spacer(modifier = Modifier.width(5.dp))
                 Row {
-                    Text(text = "Body: ")
-                    Text(text = message.body)
+                    Text(text = "Body:")
+                    Text(
+                        text = message.body,
+                        color = MaterialTheme.colorScheme.primaryContainer,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
                 }
             }
         }
     }
 
-    // Chú thích @Preview cho phép bạn xem trước các hàm có khả năng kết hợp trong Android Studio
-    // mà không cần phải tạo và cài đặt ứng dụng trên thiết bị Android hoặc trình mô phỏng
-    @Preview
+    // Dark theme (or night mode) can be enabled to avoid a bright display especially at night,
+    // or simply to save the device battery
+    @Preview(name = "Light Mode")
+    @Preview(
+        uiMode = Configuration.UI_MODE_NIGHT_YES,
+        showBackground = true,
+        name = "Dark Mode"
+    )
     @Composable
     fun PreviewMessageCard() {
-        MessageCard(message = MessageModel("Nhoc Tax", " I am Android Developer"))
+        Surface {
+            MessageCard(
+                message = MessageModel("Lexi", "Hey, take a look at Jetpack Compose, it's great!")
+            )
+        }
     }
 }

@@ -28,10 +28,22 @@ android {
     productFlavors {
         create(Builds.Flavors.DEV) {
             dimension = Builds.SHARED_DIMENSION
+            buildConfigField(
+                "String",
+                "BASE_API_URL",
+                "\"https://api.openweathermap.org/data/2.5/\""
+            )
+            buildConfigField("String", "WEATHER_APP_ID", "\"WEATHER_APP_ID\"")
         }
 
         create(Builds.Flavors.PRD) {
             dimension = Builds.SHARED_DIMENSION
+            buildConfigField(
+                "String",
+                "BASE_API_URL",
+                "\"https://api.openweathermap.org/data/2.5/\""
+            )
+            buildConfigField("String", "WEATHER_APP_ID", "\"WEATHER_APP_ID\"")
         }
     }
 
@@ -46,10 +58,24 @@ android {
 
 dependencies {
 
+    implementation(project(Modules.DOMAIN))
+
     implementation(Libs.AndroidX.CORE_KTX)
     implementation(Libs.AndroidX.APPCOMPAT)
     implementation(Libs.AndroidX.MATERIAL)
     testImplementation(Libs.Test.JUNIT)
     androidTestImplementation(Libs.Test.JUNIT_EXT)
     androidTestImplementation(Libs.Test.ESPRESSO_CORE)
+
+    implementation(Libs.Room.KTX)
+    implementation(Libs.Room.RUNTIME)
+    implementation(Libs.Room.COMPILER)
+
+    implementation(Libs.Retrofit.CORE)
+    implementation(Libs.Retrofit.CONVERTER)
+    implementation(Libs.Retrofit.MOCK)
+
+    implementation(Libs.OkHttp.OKHTTP)
+    implementation(Libs.OkHttp.LOGGING)
+
 }

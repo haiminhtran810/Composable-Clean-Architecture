@@ -8,4 +8,8 @@ object Versions {
     const val ESPRESSO_CORE = "3.5.1"
     const val COMPOSE_COMPILER = "1.4.3"
     const val VIEW_MODEL = "2.6.1"
+    const val TIMBER = "5.0.1"
+    const val ROOM = "2.3.0"
+    const val RETROFIT = "2.9.0"
+     const val OKHTTP = "4.9.1"
 }

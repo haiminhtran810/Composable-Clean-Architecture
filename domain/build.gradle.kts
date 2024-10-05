@@ -52,4 +52,6 @@ dependencies {
     testImplementation(Libs.Test.JUNIT)
     androidTestImplementation(Libs.Test.JUNIT_EXT)
     androidTestImplementation(Libs.Test.ESPRESSO_CORE)
+
+    implementation(Libs.Retrofit.CONVERTER)
 }

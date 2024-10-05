@@ -6,8 +6,8 @@ object Libs {
         const val ACTIVITY_COMPOSE =
             "androidx.activity:activity-compose:${Versions.ACTIVITY_COMPOSE}"
         const val COMPOSE_BOOM = "androidx.compose:compose-bom:${Versions.COMPOSE_BOOM}"
-        const val APPCOMPAT="androidx.appcompat:appcompat:1.6.1"
-        const val MATERIAL="com.google.android.material:material:1.8.0"
+        const val APPCOMPAT = "androidx.appcompat:appcompat:1.6.1"
+        const val MATERIAL = "com.google.android.material:material:1.8.0"
     }
 
     object Kotlin {
@@ -32,4 +32,26 @@ object Libs {
         const val UI_TOOLING = "androidx.compose.ui:ui-tooling"
         const val UI_TEST_MANIFEST = "androidx.compose.ui:ui-test-manifest"
     }
+
+    object Room {
+        const val RUNTIME = "androidx.room:room-runtime:${Versions.ROOM}"
+        const val KTX = "androidx.room:room-ktx:${Versions.ROOM}"
+        const val COMPILER = "androidx.room:room-compiler:${Versions.ROOM}"
+    }
+
+    object Log {
+        const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
+    }
+
+    object Retrofit {
+        const val CORE = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
+        const val CONVERTER = "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT}"
+        const val MOCK = "com.squareup.retrofit2:retrofit-mock:${Versions.RETROFIT}"
+    }
+
+    object OkHttp {
+        const val OKHTTP = "com.squareup.okhttp3:okhttp:${Versions.OKHTTP}"
+        const val LOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP}"
+    }
+
 }

@@ -79,6 +79,8 @@ android {
 }
 
 dependencies {
+    implementation(project(Modules.DOMAIN))
+
     implementation(Libs.AndroidX.CORE_KTX)
     implementation(Libs.AndroidX.LIFECYCLE_RUNTIME_KTX)
     implementation(Libs.AndroidX.ACTIVITY_COMPOSE)
@@ -96,4 +98,5 @@ dependencies {
     androidTestImplementation(Libs.Test.COMPOSE_UI_JUNIT)
 
     implementation(Libs.Kotlin.VIEW_MODEL)
+    implementation(Libs.Log.TIMBER)
 }

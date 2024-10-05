@@ -1,9 +1,10 @@
-package com.home.androidComposable
+package com.home.androidComposable.screen
 
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -33,6 +34,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.home.androidComposable.data.fakeData
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.home.androidComposable.R
 
 // 1. Composable function: Text, Image...
 // 2. Layout: Column, Row, Modifier.
@@ -47,7 +50,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Surface {
-                Conversation(messages = fakeData())
+                Conversation(MainViewModel())
             }
         }
     }
@@ -104,7 +107,7 @@ class MainActivity : ComponentActivity() {
 
 
     @Composable
-    fun Conversation(messages: List<MessageModel>) {
+    fun Conversation(mainViewModel: MainViewModel = viewModel()) {
         Column {
             Image(
                 painter = painterResource(id = android.R.drawable.ic_menu_close_clear_cancel),
@@ -117,7 +120,7 @@ class MainActivity : ComponentActivity() {
             )
             Spacer(modifier = Modifier.height(5.dp))
             LazyColumn {
-                items(messages) { message ->
+                items(mainViewModel.getFakeData()) { message ->
                     MessageCard(message = message)
                 }
             }
@@ -144,7 +147,7 @@ class MainActivity : ComponentActivity() {
     @Preview
     @Composable
     fun PreviewConversation() {
-        Conversation(messages = fakeData())
+        Conversation(MainViewModel())
     }
 
 }

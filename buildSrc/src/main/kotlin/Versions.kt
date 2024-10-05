@@ -7,4 +7,5 @@ object Versions {
     const val JUNIT = "4.13.2"
     const val ESPRESSO_CORE = "3.5.1"
     const val COMPOSE_COMPILER = "1.4.3"
+    const val VIEW_MODEL = "2.6.1"
 }

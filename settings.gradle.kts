@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Android-Composable"
 include(":app")
+include(":data")
+include(":domain")

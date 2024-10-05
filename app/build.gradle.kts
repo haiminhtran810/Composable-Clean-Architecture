@@ -94,4 +94,6 @@ dependencies {
     androidTestImplementation(Libs.Test.ESPRESSO_CORE)
     androidTestImplementation(platform(Libs.AndroidX.COMPOSE_BOOM))
     androidTestImplementation(Libs.Test.COMPOSE_UI_JUNIT)
+
+    implementation(Libs.Kotlin.VIEW_MODEL)
 }

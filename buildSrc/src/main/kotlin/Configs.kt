@@ -14,5 +14,6 @@ object Configs {
     const val PROGUARD_RULES = "proguard-rules.pro"
 
     const val ANDROID_JUNIT_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
+    const val CONSUMER_RULES = "consumer-rules.pro"
 
 }

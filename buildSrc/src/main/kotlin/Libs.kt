@@ -6,9 +6,14 @@ object Libs {
         const val ACTIVITY_COMPOSE =
             "androidx.activity:activity-compose:${Versions.ACTIVITY_COMPOSE}"
         const val COMPOSE_BOOM = "androidx.compose:compose-bom:${Versions.COMPOSE_BOOM}"
+        const val APPCOMPAT="androidx.appcompat:appcompat:1.6.1"
+        const val MATERIAL="com.google.android.material:material:1.8.0"
     }
 
     object Kotlin {
+        const val VIEW_MODEL =
+            "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.VIEW_MODEL}"
+
 
     }
 

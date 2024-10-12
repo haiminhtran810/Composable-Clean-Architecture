@@ -80,6 +80,7 @@ android {
 
 dependencies {
     implementation(project(Modules.DOMAIN))
+    implementation(project(Modules.DATA))
 
     implementation(Libs.AndroidX.CORE_KTX)
     implementation(Libs.AndroidX.LIFECYCLE_RUNTIME_KTX)
@@ -99,4 +100,6 @@ dependencies {
 
     implementation(Libs.Kotlin.VIEW_MODEL)
     implementation(Libs.Log.TIMBER)
+
+    implementation(Libs.Koin.KOIN)
 }

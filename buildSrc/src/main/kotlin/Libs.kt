@@ -54,4 +54,8 @@ object Libs {
         const val LOGGING = "com.squareup.okhttp3:logging-interceptor:${Versions.OKHTTP}"
     }
 
+    object Koin {
+        const val KOIN = "io.insert-koin:koin-android:${Versions.KOIN}"
+    }
+
 }

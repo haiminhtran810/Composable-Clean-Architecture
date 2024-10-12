@@ -33,7 +33,7 @@ android {
                 "BASE_API_URL",
                 "\"https://api.openweathermap.org/data/2.5/\""
             )
-            buildConfigField("String", "WEATHER_APP_ID", "\"WEATHER_APP_ID\"")
+            buildConfigField("String", "WEATHER_APP_ID", "\"7315d981fa54392d62c44626a5a947e8\"")
         }
 
         create(Builds.Flavors.PRD) {
@@ -43,7 +43,7 @@ android {
                 "BASE_API_URL",
                 "\"https://api.openweathermap.org/data/2.5/\""
             )
-            buildConfigField("String", "WEATHER_APP_ID", "\"WEATHER_APP_ID\"")
+            buildConfigField("String", "WEATHER_APP_ID", "\"7315d981fa54392d62c44626a5a947e8\"")
         }
     }
 
@@ -69,7 +69,7 @@ dependencies {
 
     implementation(Libs.Room.KTX)
     implementation(Libs.Room.RUNTIME)
-    implementation(Libs.Room.COMPILER)
+    annotationProcessor(Libs.Room.COMPILER)
 
     implementation(Libs.Retrofit.CORE)
     implementation(Libs.Retrofit.CONVERTER)
@@ -77,5 +77,8 @@ dependencies {
 
     implementation(Libs.OkHttp.OKHTTP)
     implementation(Libs.OkHttp.LOGGING)
+
+    implementation(Libs.Koin.KOIN)
+    implementation(Libs.Log.TIMBER)
 
 }

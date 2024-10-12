@@ -1,9 +1,9 @@
 package com.home.data.service.response
 
 import com.google.gson.annotations.SerializedName
-import com.home.data.model.Current
-import com.home.data.model.Daily
-import com.home.data.model.Hourly
+import com.home.domain.model.weather.Current
+import com.home.domain.model.weather.Daily
+import com.home.domain.model.weather.Hourly
 
 data class OneCallResponse(
     @SerializedName("lat") val lat: Double,

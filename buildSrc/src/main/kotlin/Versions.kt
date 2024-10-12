@@ -11,5 +11,6 @@ object Versions {
     const val TIMBER = "5.0.1"
     const val ROOM = "2.3.0"
     const val RETROFIT = "2.9.0"
-     const val OKHTTP = "4.9.1"
+    const val OKHTTP = "4.9.1"
+    const val KOIN = "3.4.0"
 }

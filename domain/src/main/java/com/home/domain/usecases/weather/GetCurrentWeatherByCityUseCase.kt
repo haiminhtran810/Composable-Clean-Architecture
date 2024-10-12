@@ -13,5 +13,6 @@ class GetCurrentWeatherByCityUseCase constructor(
     override fun execute(params: Params?): Flow<CurrentWeather> {
         return weatherRepository.getCurrentWeather(params?.city.orEmpty())
     }
+
     data class Params(val city: String)
 }

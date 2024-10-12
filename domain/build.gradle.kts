@@ -54,4 +54,7 @@ dependencies {
     androidTestImplementation(Libs.Test.ESPRESSO_CORE)
 
     implementation(Libs.Retrofit.CONVERTER)
+
+    implementation(Libs.Koin.KOIN)
+    implementation(Libs.Log.TIMBER)
 }

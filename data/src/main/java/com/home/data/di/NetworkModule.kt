@@ -1,7 +1,7 @@
 package com.home.data.di
 
 import com.home.data.mapper.ExceptionMapper
-import com.home.data.service.api.WeatherApi
+import com.home.data.service.api.MovieAPI
 import com.home.data.service.builder.RetrofitBuilder
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -14,7 +14,7 @@ val networkModule = module {
     single(qualifier = named(DEFAULT_SERVICE)) {
         provideRetrofit(get())
     }
-    single { provideWeatherAPI(get(qualifier = named(DEFAULT_SERVICE))) }
+    single { provideMovieAPI(get(qualifier = named(DEFAULT_SERVICE))) }
 }
 
 fun provideExceptionMapper() = ExceptionMapper()
@@ -25,4 +25,4 @@ fun provideRetrofit(
     return retrofitBuilder.build()
 }
 
-fun provideWeatherAPI(retrofit: Retrofit): WeatherApi = retrofit.create(WeatherApi::class.java)
+fun provideMovieAPI(retrofit: Retrofit): MovieAPI = retrofit.create(MovieAPI::class.java)

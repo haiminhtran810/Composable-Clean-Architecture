@@ -58,4 +58,9 @@ object Libs {
         const val KOIN = "io.insert-koin:koin-android:${Versions.KOIN}"
     }
 
+    object Navigation{
+        const val NAVIGATION_COMPOSE = "androidx.navigation:navigation-compose:${Versions.NAVIGATION_COMPOSE}"
+        const val NAVIGATION_COMPOSE_TEST = "androidx.navigation:navigation-testing:${Versions.NAVIGATION_COMPOSE}"
+    }
+
 }

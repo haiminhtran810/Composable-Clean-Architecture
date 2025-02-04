@@ -1,4 +1,4 @@
-package com.home.androidComposable.screen
+package com.home.androidComposable.screen.main
 
 import androidx.lifecycle.ViewModel
 import com.home.androidComposable.data.fakeData

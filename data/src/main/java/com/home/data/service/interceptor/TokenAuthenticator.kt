@@ -1,7 +1,7 @@
 package com.home.data.service.interceptor
 
 import com.home.data.model.TokenResponseModel
-import com.home.data.service.api.WeatherApi
+import com.home.data.service.api.MovieAPI
 import com.home.data.service.builder.RetrofitBuilder.Companion.HEADER_AUTHORIZATION
 import com.home.data.storages.pref.PreferenceStorage
 import okhttp3.Authenticator
@@ -18,7 +18,7 @@ const val MIN_WINDOW_TIME_2_REFRESH_TOKEN_CALLS = 300_000L
 
 class TokenAuthenticator : Authenticator, KoinComponent {
     private var countDownLatch: CountDownLatch? = null
-    private val weatherApi: WeatherApi by inject()
+    private val movieAPI: MovieAPI by inject()
     private val pref: PreferenceStorage by inject()
     private var lastRefreshToken = 0L
 
@@ -81,7 +81,7 @@ class TokenAuthenticator : Authenticator, KoinComponent {
         accessToken: String?, refreshToken: String?
     ): TokenResponseModel {
         val calendarString = Calendar.getInstance().toString()
-        val fakeCallAPI = weatherApi.toString() + accessToken + refreshToken
+        val fakeCallAPI = movieAPI.toString() + accessToken + refreshToken
         return TokenResponseModel(
             accessToken = "NewAccessToken$calendarString",
             refreshToken = "NewRefreshToken$calendarString",

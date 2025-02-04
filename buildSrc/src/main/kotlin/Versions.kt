@@ -13,4 +13,5 @@ object Versions {
     const val RETROFIT = "2.9.0"
     const val OKHTTP = "4.9.1"
     const val KOIN = "3.4.0"
+    const val NAVIGATION_COMPOSE = "2.8.6"
 }

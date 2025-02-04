@@ -23,7 +23,6 @@ android {
             )
         }
     }
-
     flavorDimensions += Builds.SHARED_DIMENSION
     productFlavors {
         create(Builds.Flavors.DEV) {
@@ -31,9 +30,16 @@ android {
             buildConfigField(
                 "String",
                 "BASE_API_URL",
-                "\"https://api.openweathermap.org/data/2.5/\""
+                "\"https://api.themoviedb.org/3/\""
             )
-            buildConfigField("String", "WEATHER_APP_ID", "\"7315d981fa54392d62c44626a5a947e8\"")
+            buildConfigField("String", "MOVIE_APP_ID", "\"3e047b2cc8fc38537ee7b3e6f547e53c\"")
+            buildConfigField("String", "MOVIE_IMAGE_SMALL", "\"https://image.tmdb.org/t/p/w200\"")
+            buildConfigField("String", "MOVIE_IMAGE_LARGE", "\"https://image.tmdb.org/t/p/w500\"")
+            buildConfigField(
+                "String",
+                "MOVIE_IMAGE_ORIGINAL",
+                "\"https://image.tmdb.org/t/p/original\""
+            )
         }
 
         create(Builds.Flavors.PRD) {
@@ -41,9 +47,16 @@ android {
             buildConfigField(
                 "String",
                 "BASE_API_URL",
-                "\"https://api.openweathermap.org/data/2.5/\""
+                "\"https://api.themoviedb.org/3/\""
             )
-            buildConfigField("String", "WEATHER_APP_ID", "\"7315d981fa54392d62c44626a5a947e8\"")
+            buildConfigField("String", "MOVIE_APP_ID", "\"3e047b2cc8fc38537ee7b3e6f547e53c\"")
+            buildConfigField("String", "MOVIE_IMAGE_SMALL", "\"https://image.tmdb.org/t/p/w200\"")
+            buildConfigField("String", "MOVIE_IMAGE_LARGE", "\"https://image.tmdb.org/t/p/w500\"")
+            buildConfigField(
+                "String",
+                "MOVIE_IMAGE_ORIGINAL",
+                "\"https://image.tmdb.org/t/p/original\""
+            )
         }
     }
 
@@ -81,4 +94,6 @@ dependencies {
     implementation(Libs.Koin.KOIN)
     implementation(Libs.Log.TIMBER)
 
+    implementation(Libs.Navigation.NAVIGATION_COMPOSE)
+    androidTestImplementation(Libs.Navigation.NAVIGATION_COMPOSE_TEST)
 }

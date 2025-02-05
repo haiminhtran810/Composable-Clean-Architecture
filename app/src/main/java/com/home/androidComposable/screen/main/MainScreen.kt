@@ -3,9 +3,10 @@ package com.home.androidComposable.screen.main
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -20,17 +21,20 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.home.androidComposable.screen.nowplaying.NowPlayingScreen
-import com.home.androidComposable.screen.popular.PopularScreen
-import com.home.androidComposable.screen.toprated.TopRatedScreen
+import androidx.navigation.NavController
+import com.home.androidComposable.screen.account.AccountScreen
+import com.home.androidComposable.screen.favorite.FavoriteScreen
+import com.home.androidComposable.screen.home.HomeScreen
+import com.home.androidComposable.screen.search.SearchScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(modifier: Modifier = Modifier) {
+fun MainScreen(navController: NavController, modifier: Modifier = Modifier) {
     val navItemList = listOf(
-        NavItem("Popular", Icons.Default.Home, 0),
-        NavItem("Now Playing", Icons.Default.Notifications, 0),
-        NavItem("Top Rated", Icons.Default.Settings, 0),
+        NavItem("Home", Icons.Default.Home, 0),
+        NavItem("Search", Icons.Default.Search, 0),
+        NavItem("Favorites", Icons.Default.Favorite, 0),
+        NavItem("Account", Icons.Default.AccountBox, 0),
     )
 
     var selectedIndex by remember {
@@ -66,15 +70,20 @@ fun MainScreen(modifier: Modifier = Modifier) {
             }
         }
     ) { innerPadding ->
-        ContentScreen(modifier = Modifier.padding(innerPadding), selectedIndex)
+        ContentScreen(
+            navController = navController,
+            modifier = Modifier.padding(innerPadding),
+            selectedIndex = selectedIndex
+        )
     }
 }
 
 @Composable
-fun ContentScreen(modifier: Modifier = Modifier, selectedIndex: Int) {
+fun ContentScreen(navController: NavController, modifier: Modifier = Modifier, selectedIndex: Int) {
     when (selectedIndex) {
-        0 -> PopularScreen()
-        1 -> NowPlayingScreen()
-        2 -> TopRatedScreen()
+        0 -> HomeScreen(navController)
+        1 -> SearchScreen(navController)
+        2 -> FavoriteScreen(navController)
+        3 -> AccountScreen(navController)
     }
 }

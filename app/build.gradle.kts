@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id(Plugins.APPLICATION)
     id(Plugins.JETBRAINS_KOTLIN)
@@ -102,4 +104,7 @@ dependencies {
     implementation(Libs.Log.TIMBER)
 
     implementation(Libs.Koin.KOIN)
+    implementation(Libs.Koin.KOIN_COMPOSE)
+    implementation(Libs.Navigation.NAVIGATION_COMPOSE)
+    androidTestImplementation(Libs.Navigation.NAVIGATION_COMPOSE_TEST)
 }

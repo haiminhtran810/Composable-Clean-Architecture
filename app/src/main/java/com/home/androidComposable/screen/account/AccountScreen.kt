@@ -1,4 +1,4 @@
-package com.home.androidComposable.screen.popular
+package com.home.androidComposable.screen.account
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -11,9 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun PopularScreen(modifier: Modifier = Modifier) {
+fun AccountScreen(navController: NavController, modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -22,7 +23,7 @@ fun PopularScreen(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Popular",
+            text = "Account",
             fontSize = 40.sp,
             fontWeight = FontWeight.SemiBold,
             color = Color.White

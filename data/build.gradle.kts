@@ -93,7 +93,4 @@ dependencies {
 
     implementation(Libs.Koin.KOIN)
     implementation(Libs.Log.TIMBER)
-
-    implementation(Libs.Navigation.NAVIGATION_COMPOSE)
-    androidTestImplementation(Libs.Navigation.NAVIGATION_COMPOSE_TEST)
 }

@@ -19,3 +19,4 @@ keystore
 app/dev/*
 app/prod/*
 .idea/*
+gradle.properties

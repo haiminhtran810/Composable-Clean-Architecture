@@ -107,4 +107,5 @@ dependencies {
     implementation(Libs.Koin.KOIN_COMPOSE)
     implementation(Libs.Navigation.NAVIGATION_COMPOSE)
     androidTestImplementation(Libs.Navigation.NAVIGATION_COMPOSE_TEST)
+    implementation("androidx.compose.material3:material3:1.3.0-beta04")
 }

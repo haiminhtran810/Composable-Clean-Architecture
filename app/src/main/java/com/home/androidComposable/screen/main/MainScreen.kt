@@ -21,7 +21,9 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import com.home.androidComposable.R
 import com.home.androidComposable.screen.account.AccountScreen
 import com.home.androidComposable.screen.favorite.FavoriteScreen
 import com.home.androidComposable.screen.home.HomeScreen
@@ -31,10 +33,10 @@ import com.home.androidComposable.screen.search.SearchScreen
 @Composable
 fun MainScreen(navController: NavController, modifier: Modifier = Modifier) {
     val navItemList = listOf(
-        NavItem("Home", Icons.Default.Home, 0),
-        NavItem("Search", Icons.Default.Search, 0),
-        NavItem("Favorites", Icons.Default.Favorite, 0),
-        NavItem("Account", Icons.Default.AccountBox, 0),
+        NavItem(stringResource(id = R.string.tab_title_home), Icons.Default.Home, 0),
+        NavItem(stringResource(id = R.string.tab_title_search), Icons.Default.Search, 0),
+        NavItem(stringResource(id = R.string.tab_title_favorite), Icons.Default.Favorite, 0),
+        NavItem(stringResource(id = R.string.tab_title_account), Icons.Default.AccountBox, 0),
     )
 
     var selectedIndex by remember {

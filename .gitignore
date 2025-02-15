@@ -19,4 +19,5 @@ keystore
 app/dev/*
 app/prod/*
 .idea/*
-gradle.properties
+gradle/8.0/
+gradle/buildOutputCleanup/

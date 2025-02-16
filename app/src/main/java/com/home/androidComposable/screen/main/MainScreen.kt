@@ -28,10 +28,15 @@ import com.home.androidComposable.screen.account.AccountScreen
 import com.home.androidComposable.screen.favorite.FavoriteScreen
 import com.home.androidComposable.screen.home.HomeScreen
 import com.home.androidComposable.screen.search.SearchScreen
+import org.koin.androidx.compose.koinViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(navController: NavController, modifier: Modifier = Modifier) {
+fun MainScreen(
+    navController: NavController,
+    modifier: Modifier = Modifier,
+    viewModel: MainViewModel = koinViewModel()
+) {
+    viewModel.getPopular()
     val navItemList = listOf(
         NavItem(stringResource(id = R.string.tab_title_home), Icons.Default.Home, 0),
         NavItem(stringResource(id = R.string.tab_title_search), Icons.Default.Search, 0),

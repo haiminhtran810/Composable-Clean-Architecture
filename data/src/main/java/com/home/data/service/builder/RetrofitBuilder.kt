@@ -2,6 +2,7 @@ package com.home.data.service.builder
 
 import com.home.data.mapper.ExceptionMapper
 import com.home.data.service.factory.FlowCallAdapterFactory
+import com.home.data.service.interceptor.HeaderInterceptor
 import com.home.data.service.interceptor.TokenAuthenticator
 import com.home.data.util.Constants
 import com.home.domain.BuildConfig
@@ -22,7 +23,7 @@ class RetrofitBuilder(private val exceptionMapper: ExceptionMapper) {
     private var readTimeout = Constants.HttpClient.READ_TIMEOUT
     private val okHttpClient = makeOkHttpClient(makeLoggingInterceptor(BuildConfig.DEBUG))
 
-    private val tokenAuthenticator = TokenAuthenticator()
+    //private val tokenAuthenticator = TokenAuthenticator()
 
     //private val okHttpClient = make
     private fun makeOkHttpClient(httpLoggingInterceptor: Interceptor): OkHttpClient {
@@ -30,9 +31,12 @@ class RetrofitBuilder(private val exceptionMapper: ExceptionMapper) {
             .connectTimeout(connectionTimeout, TimeUnit.SECONDS)
             .writeTimeout(writeTimeout, TimeUnit.SECONDS)
             .readTimeout(readTimeout, TimeUnit.SECONDS)
-            .authenticator(tokenAuthenticator)
+            .addInterceptor(provideHeaderInterceptor())
+            //.authenticator(tokenAuthenticator)
             .addInterceptor(httpLoggingInterceptor).build()
     }
+
+    private fun provideHeaderInterceptor(): Interceptor = HeaderInterceptor()
 
     private fun makeLoggingInterceptor(isDebug: Boolean): Interceptor {
         return HttpLoggingInterceptor().apply {
@@ -45,9 +49,9 @@ class RetrofitBuilder(private val exceptionMapper: ExceptionMapper) {
         }
     }
 
-    private fun getUrl() = "Weather API URL"
+    private fun getUrl() = "https://api.themoviedb.org/3/"
 
-     fun build(): Retrofit {
+    fun build(): Retrofit {
         return Retrofit.Builder().baseUrl(getUrl()).client(okHttpClient)
             .addCallAdapterFactory(FlowCallAdapterFactory.create(exceptionMapper = exceptionMapper))
             .addConverterFactory(GsonConverterFactory.create()).build()

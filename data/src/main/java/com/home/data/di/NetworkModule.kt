@@ -15,6 +15,7 @@ val networkModule = module {
         provideRetrofit(get())
     }
     single { provideMovieAPI(get(qualifier = named(DEFAULT_SERVICE))) }
+    factory { RetrofitBuilder(get()) }
 }
 
 fun provideExceptionMapper() = ExceptionMapper()

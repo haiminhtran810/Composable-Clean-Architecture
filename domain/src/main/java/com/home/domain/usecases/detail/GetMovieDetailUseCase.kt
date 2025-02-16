@@ -14,7 +14,7 @@ class GetMovieDetailUseCase(
 
     data class Params(val movieId: String)
 
-    override fun execute(params: Params?): Flow<Movie> {
-        return flow { movieRepository.getMovieDetail(params?.movieId ?: "") }
+    override suspend fun execute(params: Params): Movie {
+        return movieRepository.getMovieDetail(params?.movieId ?: "")
     }
 }

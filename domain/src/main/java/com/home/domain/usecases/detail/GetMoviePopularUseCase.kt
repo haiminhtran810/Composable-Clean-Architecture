@@ -14,7 +14,7 @@ class GetMoviePopularUseCase(
 
     data class Params(val page: Int)
 
-    override fun execute(params: Params?): Flow<List<Movie>> {
-        return flow { movieRepository.getPopularMovies(params?.page ?: 0) }
+    override suspend fun execute(params: Params): List<Movie> {
+        return movieRepository.getPopularMovies(params?.page ?: 0)
     }
 }

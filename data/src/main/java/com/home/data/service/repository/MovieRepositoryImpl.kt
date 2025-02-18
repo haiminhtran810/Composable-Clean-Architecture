@@ -9,9 +9,20 @@ class MovieRepositoryImpl(private val movieApi: MovieAPI) : MovieRepository {
         return movieApi.getMovieListPopular(page).results?.toList().orEmpty()
     }
 
+    override suspend fun getTopRatedMovies(page: Int): List<Movie> {
+        return movieApi.getMovieListTopRated(page).results?.toList().orEmpty()
+    }
+
+    override suspend fun getNowPlayingMovies(page: Int): List<Movie> {
+        return movieApi.getMovieListNowPlaying(page).results?.toList().orEmpty()
+    }
+
+    override suspend fun getUpcomingMovies(page: Int): List<Movie> {
+        return movieApi.getMovieListUpcoming(page).results?.toList().orEmpty()
+    }
+
     override suspend fun getMovieDetail(movieId: String): Movie {
         return movieApi.getMovieDetailAsync(movieId)
     }
-
 
 }

@@ -1,0 +1,17 @@
+package com.home.domain.usecases
+
+import com.home.domain.model.movie.Movie
+import com.home.domain.repository.MovieRepository
+import kotlinx.coroutines.CoroutineDispatcher
+
+class GetMovieTopRatedUseCase(
+    private val movieRepository: MovieRepository,
+    dispatcher: CoroutineDispatcher
+) : UseCase<GetMovieTopRatedUseCase.Params, List<Movie>>(dispatcher) {
+
+    data class Params(val page: Int)
+
+    override suspend fun execute(params: Params): List<Movie> {
+        return movieRepository.getTopRatedMovies(params.page)
+    }
+}

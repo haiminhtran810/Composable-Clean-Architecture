@@ -25,9 +25,14 @@ import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.home.androidComposable.ui.theme.MovieTheme
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun HomeScreen(navController: NavController, modifier: Modifier = Modifier) {
+fun HomeScreen(
+    navController: NavController,
+    modifier: Modifier = Modifier,
+    viewModel: HomeViewModel = koinViewModel()
+) {
     HomeScreenContent()
 }
 
@@ -81,7 +86,7 @@ fun HomeScreenContent() {
 @Composable
 fun FilmCategory(
     items: List<String>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
         modifier = modifier,

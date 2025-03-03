@@ -4,8 +4,6 @@ import com.home.domain.model.movie.Movie
 import com.home.domain.repository.MovieRepository
 import com.home.domain.usecases.UseCase
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 class GetMovieDetailUseCase(
     private val movieRepository: MovieRepository,
@@ -15,6 +13,6 @@ class GetMovieDetailUseCase(
     data class Params(val movieId: String)
 
     override suspend fun execute(params: Params): Movie {
-        return movieRepository.getMovieDetail(params?.movieId ?: "")
+        return movieRepository.getMovieDetail(params.movieId)
     }
 }

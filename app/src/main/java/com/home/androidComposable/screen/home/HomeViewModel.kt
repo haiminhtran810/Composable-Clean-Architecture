@@ -37,6 +37,9 @@ class HomeViewModel(
                     Timber.e(it)
                 }.collect { rsp ->
                     rsp.onSuccess { movies ->
+                        _homeUiState.update {
+                            it.copy(popularMovies = movies)
+                        }
 
                     }
                 }
@@ -50,7 +53,9 @@ class HomeViewModel(
                     Timber.e(it)
                 }.collect { rsp ->
                     rsp.onSuccess { movies ->
-
+                        _homeUiState.update {
+                            it.copy(topRatedMovies = movies)
+                        }
                     }
                 }
         }
@@ -63,7 +68,9 @@ class HomeViewModel(
                     Timber.e(it)
                 }.collect { rsp ->
                     rsp.onSuccess { movies ->
-
+                        _homeUiState.update {
+                            it.copy(upcomingMovies = movies)
+                        }
                     }
                 }
         }
@@ -76,7 +83,9 @@ class HomeViewModel(
                     Timber.e(it)
                 }.collect { rsp ->
                     rsp.onSuccess { movies ->
-
+                        _homeUiState.update {
+                            it.copy(nowPlayingMovies = movies)
+                        }
                     }
                 }
         }

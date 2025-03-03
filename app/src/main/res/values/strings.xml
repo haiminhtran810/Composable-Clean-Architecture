@@ -14,4 +14,9 @@
     <string name="account_rate_us">Rate us</string>
     <string name="account_share">Share</string>
     <string name="account_get_in_touch">Get in touch</string>
+
+    <string name="movie_popular_movies">Popular Movies</string>
+    <string name="movie_top_rated">Top Rated</string>
+    <string name="movie_get_upcoming">Upcoming</string>
+    <string name="movie_get_now_playing">Now Playing</string>
 </resources>

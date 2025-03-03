@@ -60,7 +60,7 @@ fun MainScreen(
                         icon = {
                             BadgedBox(badge = {
                                 if (navItem.badgeCount > 0)
-                                    Badge() {
+                                    Badge {
                                         Text(text = navItem.badgeCount.toString())
                                     }
                             }) {

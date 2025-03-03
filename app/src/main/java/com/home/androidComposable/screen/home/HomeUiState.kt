@@ -6,8 +6,8 @@ import kotlinx.coroutines.flow.emptyFlow
 
 data class HomeUiState(
     // Movie
-    val popularMovies: Flow<List<Movie>> = emptyFlow(),
-    val topRatedMovies: Flow<List<Movie>> = emptyFlow(),
-    val nowPlayingMovies: Flow<List<Movie>> = emptyFlow(),
-    val upcomingMovies: Flow<List<Movie>> = emptyFlow(),
+    val popularMovies: List<Movie> = emptyList(),
+    val topRatedMovies: List<Movie> = emptyList(),
+    val nowPlayingMovies: List<Movie> = emptyList(),
+    val upcomingMovies: List<Movie> = emptyList(),
 )

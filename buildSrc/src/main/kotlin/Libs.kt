@@ -28,9 +28,10 @@ object Libs {
         const val UI = "androidx.compose.ui:ui"
         const val UI_GRAPHICS = "androidx.compose.ui:ui-graphics"
         const val UI_TOOLING_PREVIEW = "androidx.compose.ui:ui-tooling-preview"
-        const val UI_MATERIAL = "androidx.compose.material3:material3"
+        const val UI_MATERIAL = "androidx.compose.material3:material3:1.3.0-beta04"
         const val UI_TOOLING = "androidx.compose.ui:ui-tooling"
         const val UI_TEST_MANIFEST = "androidx.compose.ui:ui-test-manifest"
+        const val COIL = "io.coil-kt:coil-compose:${Versions.COIL}"
     }
 
     object Room {

@@ -81,7 +81,6 @@ class TokenAuthenticator : Authenticator, KoinComponent {
         accessToken: String?, refreshToken: String?
     ): TokenResponseModel {
         val calendarString = Calendar.getInstance().toString()
-        val fakeCallAPI = movieAPI.toString() + accessToken + refreshToken
         return TokenResponseModel(
             accessToken = "NewAccessToken$calendarString",
             refreshToken = "NewRefreshToken$calendarString",

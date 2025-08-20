@@ -36,7 +36,6 @@ fun MainScreen(
     modifier: Modifier = Modifier,
     viewModel: MainViewModel = koinViewModel()
 ) {
-    viewModel.getPopular()
     val navItemList = listOf(
         NavItem(stringResource(id = R.string.tab_title_home), Icons.Default.Home, 0),
         NavItem(stringResource(id = R.string.tab_title_search), Icons.Default.Search, 0),
@@ -61,7 +60,7 @@ fun MainScreen(
                         icon = {
                             BadgedBox(badge = {
                                 if (navItem.badgeCount > 0)
-                                    Badge() {
+                                    Badge {
                                         Text(text = navItem.badgeCount.toString())
                                     }
                             }) {

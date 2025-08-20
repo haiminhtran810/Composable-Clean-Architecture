@@ -1,6 +1,7 @@
 package com.home.domain.model.movie
 
 import com.google.gson.annotations.SerializedName
+import com.home.domain.BuildConfig
 
 data class Movie(
     @SerializedName("id")
@@ -31,7 +32,7 @@ data class Movie(
     val popularity: Double? = 0.0,
 
     @SerializedName("poster_path")
-    val posterPath: String? = "",
+    var posterPath: String? = "",
 
     @SerializedName("title")
     val title: String? = "",

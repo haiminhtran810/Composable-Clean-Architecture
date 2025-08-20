@@ -1,20 +1,17 @@
-package com.home.domain.usecases.detail
+package com.home.domain.usecases
 
 import com.home.domain.model.movie.Movie
 import com.home.domain.repository.MovieRepository
-import com.home.domain.usecases.UseCase
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
-class GetMoviePopularUseCase(
+class GetMovieUpcomingUseCase(
     private val movieRepository: MovieRepository,
     dispatcher: CoroutineDispatcher
-) : UseCase<GetMoviePopularUseCase.Params, List<Movie>>(dispatcher) {
+) : UseCase<GetMovieUpcomingUseCase.Params, List<Movie>>(dispatcher) {
 
     data class Params(val page: Int)
 
     override suspend fun execute(params: Params): List<Movie> {
-        return movieRepository.getPopularMovies(params?.page ?: 0)
+        return movieRepository.getUpcomingMovies(params.page)
     }
 }

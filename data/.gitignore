@@ -1,1 +1,32 @@
-/build
+# Gradle
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.properties
+!gradle/wrapper/gradle-wrapper.jar
+# Gradle caches
+**/outputs/
+
+# IDE (Android Studio / IntelliJ)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Local configuration
+local.properties
+
+# Captures
+captures/
+
+# Compose Preview cache
+**/.compose-cache/
+**/compose-debug-out/
+
+# APK / AAB
+*.apk
+*.aab
+*.ap_
+
+# OS / Misc
+.DS_Store
+Thumbs.db

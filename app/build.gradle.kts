@@ -92,12 +92,15 @@ dependencies {
     implementation(Libs.AndroidX.LIFECYCLE_RUNTIME_KTX)
     implementation(Libs.AndroidX.ACTIVITY_COMPOSE)
     implementation(platform(Libs.AndroidX.COMPOSE_BOOM))
+
     implementation(Libs.Compose.UI)
     implementation(Libs.Compose.UI_GRAPHICS)
     implementation(Libs.Compose.UI_TOOLING_PREVIEW)
     implementation(Libs.Compose.UI_MATERIAL)
     debugImplementation(Libs.Compose.UI_TOOLING)
     debugImplementation(Libs.Compose.UI_TEST_MANIFEST)
+    implementation(Libs.Compose.COIL)
+
     testImplementation(Libs.Test.JUNIT_EXT)
     androidTestImplementation(Libs.Test.JUNIT)
     androidTestImplementation(Libs.Test.ESPRESSO_CORE)
@@ -105,11 +108,11 @@ dependencies {
     androidTestImplementation(Libs.Test.COMPOSE_UI_JUNIT)
 
     implementation(Libs.Kotlin.VIEW_MODEL)
-    implementation(Libs.Log.TIMBER)
-
     implementation(Libs.Koin.KOIN)
     implementation(Libs.Koin.KOIN_COMPOSE)
+
+    implementation(Libs.Log.TIMBER)
+
     implementation(Libs.Navigation.NAVIGATION_COMPOSE)
     androidTestImplementation(Libs.Navigation.NAVIGATION_COMPOSE_TEST)
-    implementation("androidx.compose.material3:material3:1.3.0-beta04")
 }

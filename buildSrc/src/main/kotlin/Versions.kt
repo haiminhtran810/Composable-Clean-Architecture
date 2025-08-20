@@ -14,4 +14,7 @@ object Versions {
     const val OKHTTP = "4.9.1"
     const val KOIN = "3.4.0"
     const val NAVIGATION_COMPOSE = "2.8.6"
+    const val COIL = "2.2.2"
+    const val UI_MATERIAL = "1.3.1"
+
 }

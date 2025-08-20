@@ -1,23 +1,31 @@
+# Gradle
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+# Gradle caches
+**/outputs/
+
+# IDE (Android Studio / IntelliJ)
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-buildSrc/build
-/captures
-.externalNativeBuild
-.cxx
+*.iws
+*.ipr
+
+# Local configuration
 local.properties
-key.properties
-keystore
-app/dev/*
-app/prod/*
-.idea/*
-gradle/8.0/
-gradle/buildOutputCleanup/
+
+# Captures
+captures/
+
+# Compose Preview cache
+**/.compose-cache/
+**/compose-debug-out/
+
+# APK / AAB
+*.apk
+*.aab
+*.ap_
+
+# OS / Misc
+.DS_Store
+Thumbs.db
